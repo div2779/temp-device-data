@@ -1,0 +1,87 @@
+{
+  "device": {
+    "id": "teststub",
+    "name": "TestStub",
+    "fullName": "Test Stub Device (multi-SoC lazy-load verification)",
+    "vendor": "Texas Instruments",
+    "family": "Test",
+    "version": "0.0.2"
+  },
+  "ipBlocks": [
+    {
+      "name": "STUB",
+      "category": ["Test"],
+      "instances": [
+        { "name": "STUB0" },
+        { "name": "STUB1" }
+      ],
+      "registers": [
+        {
+          "id": 1,
+          "name": "STUB_REG",
+          "offset": "0h",
+          "addresses": ["0000 0000h", "0000 1000h"],
+          "resetValue": "0h",
+          "width": 32,
+          "accessType": "RW",
+          "description": "Stub register for verifying lazy multi-device loading.",
+          "bitFields": []
+        },
+        {
+          "id": 2,
+          "name": "STUB_CTRL",
+          "offset": "4h",
+          "addresses": ["0000 0004h", "0000 1004h"],
+          "resetValue": "1h",
+          "width": 32,
+          "accessType": "RW",
+          "description": "Dummy control register with a couple of fake fields.",
+          "bitFields": [
+            {
+              "id": 1,
+              "name": "ENABLE",
+              "bitRange": "0",
+              "bitStart": 0,
+              "bitEnd": 0,
+              "fieldType": "R/W",
+              "resetValue": "1h",
+              "description": "Dummy enable bit. Write 1 to enable the stub, 0 to disable."
+            },
+            {
+              "id": 2,
+              "name": "MODE",
+              "bitRange": "2:1",
+              "bitStart": 1,
+              "bitEnd": 2,
+              "fieldType": "R/W",
+              "resetValue": "0h",
+              "description": "Dummy 2-bit mode select. 0=idle, 1=test, 2=demo, 3=reserved."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "STUB_STATUS",
+          "offset": "8h",
+          "addresses": ["0000 0008h", "0000 1008h"],
+          "resetValue": "0h",
+          "width": 32,
+          "accessType": "RO",
+          "description": "Dummy read-only status register.",
+          "bitFields": [
+            {
+              "id": 1,
+              "name": "BUSY",
+              "bitRange": "0",
+              "bitStart": 0,
+              "bitEnd": 0,
+              "fieldType": "R",
+              "resetValue": "0h",
+              "description": "Dummy busy flag. 1=stub is busy doing nothing in particular."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

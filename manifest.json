@@ -1,0 +1,6 @@
+{
+  "devices": [
+    { "id": "am62p", "name": "AM62P", "vendor": "Texas Instruments", "version": "2025.01" },
+    { "id": "teststub", "name": "TestStub", "vendor": "Texas Instruments", "version": "0.0.2" }
+  ]
+}
